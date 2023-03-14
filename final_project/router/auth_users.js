@@ -58,10 +58,11 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
 
 regd_users.delete("/auth/review/:isbn", (req,res) => {
     const isbn = req.params.isbn;
+    const user = req.body.username;
     if (isbn){
-        delete books[isbn].review
+        delete books[isbn].reviews
     }
-    res.send(`Friend with the email  ${email} deleted.`);
+    res.send(`Reviews for the ISBN  ${isbn} posted by the user ${user} deleted.`);
 });
 
 module.exports.authenticated = regd_users;
